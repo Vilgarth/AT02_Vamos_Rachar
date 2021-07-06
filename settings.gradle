@@ -1,0 +1,2 @@
+rootProject.name = "AT02 - Vamos Rachar"
+include ':app'
