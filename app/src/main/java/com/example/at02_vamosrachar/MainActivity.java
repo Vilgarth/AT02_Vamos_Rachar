@@ -21,11 +21,12 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, View
 
     EditText edtValor, edtGalera;
     TextView tvRes;
-    FloatingActionButton share,tocar;
+    FloatingActionButton share, tocar;
     TextToSpeech ttsPlayer;
     int galera = 2;
-    double valor=0.0;
-    String resFormatado="0,00";
+    double valor = 0.0;
+    String resFormatado = "0,00";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +50,8 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, View
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1122){
-            if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS){
+        if (requestCode == 1122) {
+            if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
                 ttsPlayer = new TextToSpeech(this, this);
             } else {
                 Intent installTTSIntent = new Intent();
@@ -76,8 +77,8 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, View
         try {
             double res = Double.parseDouble(edtValor.getText().toString());
             DecimalFormat df = new DecimalFormat("#.00");
-            tvRes.setText("R$" + df.format(res/2));
-        }catch (Exception e){
+            tvRes.setText("R$" + df.format(res / 2));
+        } catch (Exception e) {
             tvRes.setText("R$ 0.00");
         }
 
@@ -85,14 +86,14 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, View
 
     @Override
     public void onClick(View v) {
-        if (v==share) {
-            Intent intent = new Intent (Intent.ACTION_SEND);
+        if (v == share) {
+            Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
-            intent.putExtra(Intent.EXTRA_TEXT, "A conta dividida por pessoa deu "+tvRes.getText().toString());
+            intent.putExtra(Intent.EXTRA_TEXT, "A conta dividida por pessoa deu " + tvRes.getText().toString());
             startActivity(intent);
         }
-        if (v==tocar){
-            if (ttsPlayer != null){
+        if (v == tocar) {
+            if (ttsPlayer != null) {
                 ttsPlayer.speak("O valor por pessoa é de " + tvRes.getText().toString() + " reais", TextToSpeech.QUEUE_FLUSH, null, "ID1");
             }
         }
@@ -102,19 +103,18 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, View
     public void onInit(int initStatus) {
         if (initStatus == TextToSpeech.SUCCESS) {
             Toast.makeText(this, "TTS ativado...", Toast.LENGTH_LONG).show();
-        }else if (initStatus == TextToSpeech.ERROR){
+        } else if (initStatus == TextToSpeech.ERROR) {
             Toast.makeText(this, "Sem TTS habilitado...", Toast.LENGTH_LONG).show();
         }
     }
 
-
-    @Override
-    public void onConfigurationChanged (Configuration _novaConfig) {
-        super.onConfigurationChanged(_novaConfig);
-
-        if (_novaConfig.orientation== Configuration.ORIENTATION_LANDSCAPE){
-            Toast t=Toast.makeText(this, "Tô deitado", Toast.LENGTH_LONG);
-            t.show();
-        }
-    }
 }
+    //@Override
+    //public void onConfigurationChanged (Configuration _novaConfig) {
+        //super.onConfigurationChanged(_novaConfig);
+
+        //if (_novaConfig.orientation== Configuration.ORIENTATION_LANDSCAPE){
+            //Toast t=Toast.makeText(this, "Tô deitado", Toast.LENGTH_LONG);
+            //t.show();
+        //}
+    //}
