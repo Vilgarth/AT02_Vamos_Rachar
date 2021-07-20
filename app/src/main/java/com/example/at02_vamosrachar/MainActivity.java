@@ -108,13 +108,14 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, View
         }
     }
 
-}
-    //@Override
-    //public void onConfigurationChanged (Configuration _novaConfig) {
-        //super.onConfigurationChanged(_novaConfig);
+    @Override
+    public void onConfigurationChanged (Configuration _novaConfig) {
+        super.onConfigurationChanged(_novaConfig);
 
-        //if (_novaConfig.orientation== Configuration.ORIENTATION_LANDSCAPE){
-            //Toast t=Toast.makeText(this, "Tô deitado", Toast.LENGTH_LONG);
-            //t.show();
-        //}
-    //}
+        if (_novaConfig.orientation== Configuration.ORIENTATION_LANDSCAPE){
+            Toast t=Toast.makeText(this, "Tô deitado", Toast.LENGTH_LONG);
+            t.show();
+        }
+    }
+}
+
