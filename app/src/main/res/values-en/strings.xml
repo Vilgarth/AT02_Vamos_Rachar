@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AT02 - Lets Split</string>
+    <string name="rachar_description">Lets Split</string>
+    <string name="img_description">Enter the total amount in the next field.</string>
+    <string name="img2_description">Number of people</string>
+    <string name="value_description">Enter the value</string>
+    <string name="people_number_description">Enter the number of people</string>
+    <string name="total_description">Total value</string>
+    <string name="but1">Click to share</string>
+    <string name="but2">Listen to the account summary</string>
 </resources>

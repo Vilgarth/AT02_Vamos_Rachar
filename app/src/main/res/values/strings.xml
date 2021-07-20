@@ -1,3 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AT02 - Vamos Rachar</string>
+    <string name="rachar_description">Vamos Rachar</string>
+    <string name="img_description">Insira o valor total no campo seguinte</string>
+    <string name="img2_description">Número de pessoas</string>
+    <string name="value_description">Insira o valor</string>
+    <string name="people_number_description">Insira o numero de pessoas</string>
+    <string name="total_description">Valor total</string>
+    <string name="but1">Clique para compartilhar</string>
+    <string name="but2">Escute o resumo da conta</string>
 </resources>
